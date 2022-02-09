@@ -21,6 +21,9 @@ No specific
 import "@openzeppelin/contracts/utils/Counters.sol"; //Help us increment a token id for each new token
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol"; //Functions to help with tokenURI (Metadata+Image)
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol"; //Basic ERC721 contract functionality
+import "@openzeppelin/contracts/token/ERC721/presets/ERC721PresetMinterPauserAutoId.sol"; //Basic ERC721 contract functionality
+
+
 
 contract TokenBase is ERC721URIStorage{ //use tokenbase as a child of ERC721 having these name and symbol
 
