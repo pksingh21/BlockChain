@@ -23,4 +23,11 @@ We will also have 2 **bridge contracts** that exists one in our main chain and o
     - If it is main chain, it releases the token there, making it available to the user
     - If it is side chain, it mints a new token, creates it from scratch.
 
+## Components
+
+- ### LancheToken(LTK): The ETH-AVAX Token conforming to ERC721 Standards
+
+- ### SolaToken(STK): The ETH-SOL Token conforming to ERC721 Standards
+
+
 ## How To Use?
