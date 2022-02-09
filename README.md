@@ -25,9 +25,9 @@ We will also have 2 **bridge contracts** that exists one in our main chain and o
 
 ## Components
 
-- ### LancheToken(LTK): The ETH-AVAX Token conforming to ERC721 Standards
+- ### LancheToken(LNK): The ETH-AVAX Token conforming to ERC721 Standards
 
-- ### SolaToken(STK): The ETH-SOL Token conforming to ERC721 Standards
+- ### SolaToken(SLT): The ETH-SOL Token conforming to ERC721 Standards
 
 
 ## How To Use?
