@@ -1,4 +1,4 @@
-//File: /contracts/LNK.sol
+//File: /contracts/LancheToken.sol
 //Contract: LancheToken
 //Created: 2022-02-09
 //Author: Kaushik Dey
