@@ -37,6 +37,11 @@ contract TokenBase is ERC721URIStorage{ //use tokenbase as a child of ERC721 hav
          */
     }
 
+    function updateAdmin(address newAdmin) external {
+        require(msg.sender == admin,'Only admin can update admin');
+        admin = newAdmin;
+    }
+
     function mint(address reciever, string memory tokenURI) public returns(uint256){
         /**
         The createToken functions recieves the tokenURI as input.
