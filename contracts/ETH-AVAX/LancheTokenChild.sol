@@ -1,4 +1,4 @@
-//File: /contracts/LNK.sol
+//File: /contracts/LancheTokenChild.sol
 //Contract: LancheTokenChild
 //Created: 2022-02-09
 //Author: Kaushik Dey
@@ -29,9 +29,7 @@ contract LancheTokenChild is TokenBase{
     function burn (uint256 tokenID) public override virtual onlyBridge returns(bool){
         return super.burn(tokenID);
     }
-
     
-
     modifier onlyBridge {
       require(msg.sender == bridge, "only bridge has access to this child token function");
       _;
