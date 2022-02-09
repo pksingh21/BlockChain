@@ -25,9 +25,7 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol"; //Basic ERC721 contrac
 
 contract TokenBase is ERC721URIStorage{ //use tokenbase as a child of ERC721 having these name and symbol
 
-    using Counters for Counters.Counter; 
-
-    mapping(string => uint8) hashes; //mapping of string to uint8 (hash) for IPFS
+    using Counters for Counters.Counter; //use the Counter library to increment a token id for each new token
 
     Counters.Counter private _tokenIds; //keep track of number of tokens created
     
