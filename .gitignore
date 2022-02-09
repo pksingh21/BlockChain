@@ -6,6 +6,9 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 
+#Compiled Solidity Scripts
+/build
+
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
@@ -102,3 +105,7 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Personal Data
+.adminkey
+.secret
