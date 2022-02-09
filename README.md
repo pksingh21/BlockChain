@@ -15,6 +15,12 @@ We will also have 2 **bridge contracts** that exists one in our main chain and o
 
 ### How does it work
 
-1. People move the amount of token they wa
+1. People move the amount of token they want to the bridge contract. The bridge contract either.
+    - If it is main chain, it locks the tokens there, making it inaccessible.
+    - If it is side chain, it burns the token, it simply destroys that token.
+
+2. The Bridge contract then signals the bridge api to communicate with the other chain where.
+    - If it is main chain, it releases the token there, making it available to the user
+    - If it is side chain, it mints a new token, creates it from scratch.
 
 ## How To Use?
