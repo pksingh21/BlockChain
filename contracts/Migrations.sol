@@ -1,4 +1,8 @@
-// SPDX-License-Identifier: MIT
+//File: /contracts/TokenBase.sol
+//Contract: TokenBase
+//Created: 2022-02-09
+//Author: Kaushik Dey
+//SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.9.0;
 
 contract Migrations {
