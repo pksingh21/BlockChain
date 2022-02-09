@@ -27,6 +27,8 @@ contract TokenBase is ERC721URIStorage{ //use tokenbase as a child of ERC721 hav
 
     using Counters for Counters.Counter; 
 
+    mapping(string => uint8) hashes; //mapping of string to uint8 (hash) for IPFS
+
     Counters.Counter private _tokenIds; //keep track of number of tokens created
     
     address public admin; //address of the owner of the token
