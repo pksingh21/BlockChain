@@ -23,9 +23,13 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol"; /
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol"; //Basic ERC721 contract functionality
 
 contract TokenBase is ERC721URIStorage{ //use tokenbase as a child of ERC721 having these name and symbol
+
     using Counters for Counters.Counter; 
+
     Counters.Counter private _tokenIds;
     
+    address public admin; //address of the owner of the token
+
     constructor(string memory name, string memory symbol) ERC721(name,symbol){
         /**
         Constructor for the TokenBase object.
@@ -33,17 +37,34 @@ contract TokenBase is ERC721URIStorage{ //use tokenbase as a child of ERC721 hav
          */
     }
 
-    function mint(string memory tokenURI) public returns(uint){
+    function mint(address reciever, string memory tokenURI) public returns(uint256){
         /**
         The createToken functions recieves the tokenURI as input.
         and returns the index of the token.
 
         Minting and Setting Token URI is done internally
          */
+
+        require(msg.sender == admin,'Only admin can mint');
+
         _tokenIds.increment(); //Increment the number of existing tokens
         uint256 newItemId = _tokenIds.current(); //set the id of the new token (var to be used later)
-        _mint(msg.sender,newItemId); //Mint the new token
+        _mint(reciever,newItemId); //Mint the new token
         _setTokenURI(newItemId,tokenURI); //set the tokenURI
         return newItemId; //return the id of the token
+    }
+
+    function burn(uint256 tokenID) public returns(bool){
+        /**
+        The createToken functions recieves the tokenURI as input.
+        and returns the index of the token.
+
+        Minting and Setting Token URI is done internally
+         */
+
+        require(msg.sender == admin,'Only admin can burn');
+        _burn(tokenID); //Mint the new token
+        _tokenIds.decrement(); //Increment the number of existing tokens
+        return true; //success
     }
 }
