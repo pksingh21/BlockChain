@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/pksingh21/BlockChain#readme",
   "dependencies": {
-    "@openzeppelin/contracts": "^4.4.2"
+    "@openzeppelin/contracts": "^4.4.2",
+    "@truffle/hdwallet-provider": "^2.0.3"
   }
 }
