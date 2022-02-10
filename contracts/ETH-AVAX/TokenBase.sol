@@ -38,11 +38,6 @@ contract TokenBase is ERC721URIStorage{ //use tokenbase as a child of ERC721 hav
          */
     }
 
-    function updateAdmin(address newAdmin) external {
-        require(msg.sender == admin,'Only admin can update admin');
-        admin = newAdmin;
-    }
-
     function mint(address reciever, string memory tokenURI) virtual public returns(uint256){
         /**
         The createToken functions recieves the tokenURI as input.
@@ -50,8 +45,6 @@ contract TokenBase is ERC721URIStorage{ //use tokenbase as a child of ERC721 hav
 
         Minting and Setting Token URI is done internally
          */
-
-        require(msg.sender == admin,'Only admin can mint');
 
         _tokenIds.increment(); //Increment the number of existing tokens
         uint256 newItemId = _tokenIds.current(); //set the id of the new token (var to be used later)
@@ -68,7 +61,6 @@ contract TokenBase is ERC721URIStorage{ //use tokenbase as a child of ERC721 hav
         Minting and Setting Token URI is done internally
          */
 
-        require(msg.sender == admin,'Only admin can burn');
         ERC721URIStorage._burn(tokenID); //Burn the token
         _tokenIds.decrement(); //Increment the number of existing tokens
         return true; //success

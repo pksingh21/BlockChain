@@ -16,7 +16,9 @@ IMPLEMENTATION NOTES:
  */
 
 contract LancheToken is TokenBase{
-    constructor(string memory tokenURI) TokenBase("LancheToken", "LNK"){
+    constructor() TokenBase("LancheToken", "LNK"){
+        //Find a way to determine some URI and use them to mint a specific number of coins here
+        //for id = 0-100, mint 100 LNK keeping tokenURI = sha256(id)
         mint(msg.sender,tokenURI);
     }
 }
