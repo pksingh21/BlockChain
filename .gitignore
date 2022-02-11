@@ -109,3 +109,5 @@ dist
 # Personal Data
 .adminkey
 .secret
+/migrations/.avax-pub-key
+/migrations/.eth-pub-key

@@ -22,7 +22,6 @@ import "@openzeppelin/contracts/utils/Counters.sol"; //Help us increment a token
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol"; //Functions to help with tokenURI (Metadata+Image)
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol"; //Basic ERC721 contract functionality
 
-
 contract TokenBase is ERC721URIStorage{ //use tokenbase as a child of ERC721 having these name and symbol
 
     using Counters for Counters.Counter; //use the Counter library to increment a token id for each new token
@@ -38,13 +37,20 @@ contract TokenBase is ERC721URIStorage{ //use tokenbase as a child of ERC721 hav
          */
     }
 
+    function _baseURI() internal override view virtual returns (string memory) {
+        /**
+        To store the base URI and call in whichever function needed
+        */
+        return "";
+    }
+
     function mint(address reciever, string memory tokenURI) virtual public returns(uint256){
         /**
         The createToken functions recieves the tokenURI as input.
         and returns the index of the token.
 
         Minting and Setting Token URI is done internally
-         */
+        */
 
         _tokenIds.increment(); //Increment the number of existing tokens
         uint256 newItemId = _tokenIds.current(); //set the id of the new token (var to be used later)

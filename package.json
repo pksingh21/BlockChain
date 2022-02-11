@@ -21,7 +21,9 @@
   "homepage": "https://github.com/pksingh21/BlockChain#readme",
   "dependencies": {
     "@openzeppelin/contracts": "^4.4.2",
-    "@truffle/hdwallet-provider": "^2.0.3"
+    "@truffle/hdwallet-provider": "^2.0.3",
+    "ascii-art": "^2.8.5",
+    "ascii-art-table": "^1.0.1"
   },
   "devDependencies": {
     "chai": "^4.3.6",
