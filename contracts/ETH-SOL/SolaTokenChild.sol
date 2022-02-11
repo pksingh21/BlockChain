@@ -18,7 +18,7 @@ IMPLEMENTATION NOTES:
 contract LancheTokenChild is TokenBase{
     address public bridge;
 
-    constructor() TokenBase("LancheToken", "LNK"){
+    constructor() TokenBase("SolaToken", "SLT"){
         //Nope
     }
 
