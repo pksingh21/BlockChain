@@ -22,7 +22,6 @@ import "@openzeppelin/contracts/utils/Counters.sol"; //Help us increment a token
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol"; //Functions to help with tokenURI (Metadata+Image)
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol"; //Basic ERC721 contract functionality
 
-
 contract TokenBase is ERC721URIStorage{ //use tokenbase as a child of ERC721 having these name and symbol
 
     using Counters for Counters.Counter; //use the Counter library to increment a token id for each new token
@@ -38,9 +37,11 @@ contract TokenBase is ERC721URIStorage{ //use tokenbase as a child of ERC721 hav
          */
     }
 
-    function updateAdmin(address newAdmin) external {
-        require(msg.sender == admin,'Only admin can update admin');
-        admin = newAdmin;
+    function _baseURI() internal override view virtual returns (string memory) {
+        /**
+        To store the base URI and call in whichever function needed
+        */
+        return "";
     }
 
     function mint(address reciever, string memory tokenURI) virtual public returns(uint256){
@@ -49,9 +50,7 @@ contract TokenBase is ERC721URIStorage{ //use tokenbase as a child of ERC721 hav
         and returns the index of the token.
 
         Minting and Setting Token URI is done internally
-         */
-
-        require(msg.sender == admin,'Only admin can mint');
+        */
 
         _tokenIds.increment(); //Increment the number of existing tokens
         uint256 newItemId = _tokenIds.current(); //set the id of the new token (var to be used later)
@@ -68,7 +67,6 @@ contract TokenBase is ERC721URIStorage{ //use tokenbase as a child of ERC721 hav
         Minting and Setting Token URI is done internally
          */
 
-        require(msg.sender == admin,'Only admin can burn');
         ERC721URIStorage._burn(tokenID); //Burn the token
         _tokenIds.decrement(); //Increment the number of existing tokens
         return true; //success

@@ -18,7 +18,11 @@ IMPLEMENTATION NOTES:
 contract LancheTokenChild is TokenBase{
     address public bridge;
 
-    constructor(address _bridge) TokenBase("LancheToken", "LNK"){
+    constructor() TokenBase("LancheToken", "LNK"){
+        //Nope
+    }
+
+    function setBridgeAddress(address _bridge) public {
         bridge = _bridge;
     }
 

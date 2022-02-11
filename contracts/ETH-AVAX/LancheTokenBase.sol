@@ -7,7 +7,8 @@
 /**
 This Is to be used as the token base contract for all the token contracts
 Special Thanks to https://dev.to/emanuelferreira/how-to-create-a-smart-contract-to-mint-a-nft-2bbn
-From where this code is inspired
+Also Special Thanks to https://ethereum-blockchain-developer.com/120-erc721-supply-chain-aisthisi/03-openzeppelin-erc721-token-preset/
+From where this code is heavily inspired
  */
 pragma solidity ^0.8.0; //declare solidity version
 
@@ -19,18 +20,27 @@ No specific
 */
 
 import "@openzeppelin/contracts/token/ERC721/presets/ERC721PresetMinterPauserAutoId.sol"; //Basic ERC721 contract functionality
+import "@openzeppelin/contracts/utils/Strings.sol";
 
 
-
-contract TokenBasePreset is ERC721PresetMinterPauserAutoId{ //use tokenbase as a child of ERC721 having these name and symbol
+contract LancheTokenBase is ERC721PresetMinterPauserAutoId{ //use tokenbase as a child of ERC721 having these name and symbol
 
     address public admin; //address of the owner of the token
 
-    constructor(string memory name, string memory symbol, string memory baseURI) ERC721PresetMinterPauserAutoId(name,symbol,baseURI){
-        /**
-        Constructor for the TokenBase object.
-        Just takes in name and symbol and relays it to the ERC721 Constructor as for now.
-         */
+    //Returns base URI
+    function _baseURI() internal override view virtual returns (string memory) {
+        return "";
+    }
+
+    function tokenURI(uint256 tokenId) public view virtual override returns (string memory) {
+        return string(abi.encodePacked(super.tokenURI(tokenId),".json"));
+    }
+
+    /**
+    The Default Token Constructor for the Main Chain
+    */
+    constructor() ERC721PresetMinterPauserAutoId("LancheToken","LNK",_baseURI()){
+        admin = msg.sender;
     }
 
     function updateAdmin(address newAdmin) external {
