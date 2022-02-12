@@ -119,3 +119,5 @@ dist
 /migrations/.eth-priv-key
 /migrations/.gateway-pub-key
 /migrations/.gateway-priv-key
+migrations/.avax-priv-key
+migrations/.eth-priv-key
