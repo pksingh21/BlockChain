@@ -4,8 +4,12 @@ const LancheToken = artifacts.require("token-contracts/LancheToken.sol");
 const LancheTokenChild = artifacts.require("token-contracts/LancheTokenChild.sol");
 
 const fs = require('fs');
-const EthAddress = fs.readFileSync('.eth-pub-key', 'utf8').toString().trim();
-const AvaxAddress = fs.readFileSync('.avax-pub-key', 'utf8').toString().trim();
+const EthAddress = fs.readFileSync('./keys/eth-pub-key', 'utf8').toString().trim();
+const EthKey = fs.readFileSync('./keys/eth-priv-key', 'utf8').toString().trim();
+const AvaxAddress = fs.readFileSync('./keys/avax-pub-key', 'utf8').toString().trim();
+const AvaxKey = fs.readFileSync('./keys/avax-priv-key', 'utf8').toString().trim();
+const GatewayAddress = fs.readFileSync('./keys/gateway-pub-key', 'utf8').toString().trim();
+const GatewayKey = fs.readFileSync('./keys/gateway-priv-key', 'utf8').toString().trim();
 // its kinda deploy(contract, args)
 
 //there exists token.address

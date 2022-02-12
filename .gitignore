@@ -8,15 +8,9 @@ lerna-debug.log*
 
 #Compiled Solidity Scripts
 /build
-.adminkey
 .secret
-migrations/.avax-priv-key
-deployment-data.txt
-migrations/.avax-pub-key
-migrations/.eth-priv-key
-migrations/.eth-pub-key
-migrations/.gateway-priv-key
-migrations/.gateway-pub-key
+migrations/keys/
+.deployment-data
 
 #Random Useless Files
 /NFT-Art
