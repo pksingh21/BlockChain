@@ -11,6 +11,8 @@ lerna-debug.log*
 
 #Random Useless Files
 /NFT-Art
+/.vscode
+
 
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
@@ -113,11 +115,3 @@ dist
 # Personal Data
 .adminkey
 .secret
-/migrations/.avax-pub-key
-/migrations/.eth-pub-key
-/migrations/.avax-priv-key
-/migrations/.eth-priv-key
-/migrations/.gateway-pub-key
-/migrations/.gateway-priv-key
-migrations/.avax-priv-key
-migrations/.eth-priv-key

@@ -1,7 +1,7 @@
-const MainBridge = artifacts.require("ETH-AVAX/MainBridge.sol");
-const SideBridge = artifacts.require("ETH-AVAX/SideBridge.sol");
-const LancheToken = artifacts.require("ETH-AVAX/LancheToken.sol");
-const LancheTokenChild = artifacts.require("ETH-AVAX/LancheTokenChild.sol");
+const MainBridge = artifacts.require("bridge-contracts/MainBridge.sol");
+const SideBridge = artifacts.require("bridge-contracts/SideBridge.sol");
+const LancheToken = artifacts.require("token-contracts/LancheToken.sol");
+const LancheTokenChild = artifacts.require("token-contracts/LancheTokenChild.sol");
 
 const fs = require('fs');
 const EthAddress = fs.readFileSync('.eth-pub-key', 'utf8').toString().trim();
@@ -15,7 +15,7 @@ module.exports = async (deployer, network, addresses) => {
         await deployer.deploy(LancheToken);
         const LNK = await LancheToken.deployed();
         for(let i = 0; i < 6; i++){
-            LNK.mint(EthAddress);
+            LNK.safeMint(EthAddress);
         }
         await deployer.deploy(MainBridge,LNK.address, EthAddress);
     }

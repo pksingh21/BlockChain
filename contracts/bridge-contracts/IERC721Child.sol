@@ -21,13 +21,4 @@ interface IERC721Child is IERC721{
     */
     function burn(uint256 _tokenId) external;
 
-    /**
-    * @notice called by bridge gateway when tokens are withdrawn from root chain
-    * Should handle withdrawals by burning the required amount for the recipient
-    *
-    * @param _from address from where to burn
-    * @param _tokenId tokenId of the NFT to burn
-    */
-    function burnFrom(address _from, uint256 _tokenId) external;
-
 }
