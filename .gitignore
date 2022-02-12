@@ -9,6 +9,10 @@ lerna-debug.log*
 #Compiled Solidity Scripts
 /build
 
+#Random Useless Files
+/NFT-Art
+
+
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
@@ -111,3 +115,7 @@ dist
 .secret
 /migrations/.avax-pub-key
 /migrations/.eth-pub-key
+/migrations/.avax-priv-key
+/migrations/.eth-priv-key
+/migrations/.gateway-pub-key
+/migrations/.gateway-priv-key
