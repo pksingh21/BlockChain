@@ -61,12 +61,16 @@ module.exports = {
     rinkeby: {
       provider: () => new HDWalletProvider(mnemonic, `https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161`),
       network_id: 4,       // Ropsten's id
-      skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
+      skipDryRun: true,     // Skip dry run before migrations? (default: false for public nets )
+      gas: 8500000,           // Gas sent with each transaction (default: ~6700000)
+      gasPrice: 20000000000,  // 20 gwei (in wei) (default: 100 gwei)
     },
     fuji: {
-      provider: () => new HDWalletProvider(mnemonic, `https://api.avax-test.network/ext/bc/C/rpc`),
+      provider: () => new HDWalletProvider(mnemonic, `https://api.avax-test.network/ext/bc/C/rpc`), //The Contracts Route
       network_id: 43113,       // Ropsten's id
-      skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
+      skipDryRun: true,     // Skip dry run before migrations? (default: false for public nets )
+      gas: 3000000,           // Gas sent with each transaction (default: ~6700000)
+      gasPrice: 225000000000,  // 20 gwei (in wei) (default: 100 gwei)
     },
     // Useful for private networks
     // private: {

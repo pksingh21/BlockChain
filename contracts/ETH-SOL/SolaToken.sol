@@ -15,7 +15,7 @@ IMPLEMENTATION NOTES:
 2. Enable Taking in Address to mint the initial supply of LNK to.
  */
 
-contract LancheToken is TokenBase{
+contract SolaToken is TokenBase{
     constructor() TokenBase("SolaToken", "SLT"){
         //Find a way to determine some URI and use them to mint a specific number of coins here
         //for id = 0-100, mint 100 LNK keeping tokenURI = sha256(id)

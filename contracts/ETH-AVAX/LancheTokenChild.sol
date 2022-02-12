@@ -26,8 +26,8 @@ contract LancheTokenChild is TokenBase{
         bridge = _bridge;
     }
 
-    function mint (address recipient, string memory tokenURI) public override virtual onlyBridge returns(uint256){
-        return super.mint(recipient, tokenURI);
+    function mint (address recipient) public override virtual onlyBridge returns(uint256){
+        return super.mint(recipient);
     }
 
     function burn (uint256 tokenID) public override virtual onlyBridge returns(bool){
