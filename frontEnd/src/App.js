@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Grid } from "@mui/material";
 import { ethers } from "ethers";
 import ErrorMessage from "./ErrorMessage";
 import TxList from "./TxList";
@@ -48,24 +49,34 @@ export default function App() {
             <h1 className="text-xl font-semibold text-gray-700 text-center">
               Send LNK payment
             </h1>
-            <div className="">
-              <div className="my-3">
+
+            <Grid
+              container
+              style={{ width: "100%", backgroundColor: "", paddingTop: "10px" }}
+              spacing={"10px"}
+            >
+              <Grid
+                item
+                xs={12}
+                sm={6}
+                style={{ width: "100%", backgroundColor: "" }}
+              >
                 <input
                   type="text"
                   name="addr"
                   className="input input-bordered block w-full focus:ring focus:outline-none"
                   placeholder="Recipient Address"
                 />
-              </div>
-              <div className="my-3">
+              </Grid>
+              <Grid item xs={12} sm={6}>
                 <input
                   name="ether"
                   type="text"
                   className="input input-bordered block w-full focus:ring focus:outline-none"
                   placeholder="Amount in ETH"
                 />
-              </div>
-            </div>
+              </Grid>
+            </Grid>
           </main>
           <footer className="p-4">
             <button
