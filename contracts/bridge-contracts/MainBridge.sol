@@ -2,8 +2,9 @@
 pragma solidity ^0.8.0;
 
 import { IERC721 } from "@openzeppelin/contracts/token/ERC721/IERC721.sol";
+import { ERC721Holder } from "@openzeppelin/contracts/token/ERC721/utils/ERC721Holder.sol";
 
-contract MainBridge {
+contract MainBridge is ERC721Holder {
     IERC721 private mainToken; //ERC721 token interface
 
     address gateway; //The address of the gateway
@@ -11,7 +12,7 @@ contract MainBridge {
     //some events declared here, we'll emit them later
     event TokensLocked(address indexed requester, bytes32 indexed mainDepositHash, uint256 tokenId, uint timestamp);
     event TokensUnlocked(address indexed requester, bytes32 indexed sideDepositHash, uint256 tokenId, uint timestamp);
-
+    
     //constructor using a IERC721 interface
     constructor (address _mainToken, address _gateway) {
         mainToken = IERC721(_mainToken);

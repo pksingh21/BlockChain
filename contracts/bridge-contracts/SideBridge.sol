@@ -1,9 +1,12 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
+import { IERC721 } from "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import { IERC721Child } from "./IERC721Child.sol";
+import { IERC721Receiver } from "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
+import { ERC721Holder } from "@openzeppelin/contracts/token/ERC721/utils/ERC721Holder.sol";
 
-contract SideBridge {
+contract SideBridge is ERC721Holder {
     //Some Events here
     event BridgeInitialized(uint indexed timestamp);
     event TokensBridged(address indexed requester, bytes32 indexed mainDepositHash, uint256 tokenId, uint timestamp);
@@ -13,7 +16,6 @@ contract SideBridge {
     bool bridgeInitState;
     address owner;
     address gateway;
-
     constructor (address _gateway) {
         gateway = _gateway;
         owner = msg.sender;

@@ -1,20 +1,16 @@
-const MainBridge = artifacts.require("ETH-AVAX/MainBridge.sol");
-const SideBridge = artifacts.require("ETH-AVAX/SideBridge.sol");
-const LancheToken = artifacts.require("ETH-AVAX/LancheToken.sol");
-const LancheTokenChild = artifacts.require("ETH-AVAX/LancheTokenChild.sol");
+const MainBridge = artifacts.require("bridge-contracts/MainBridge.sol");
+const SideBridge = artifacts.require("bridge-contracts/SideBridge.sol");
+const LancheToken = artifacts.require("token-contracts/LancheToken.sol");
+const LancheTokenChild = artifacts.require("token-contracts/LancheTokenChild.sol");
 
 const fs = require('fs');
-const EthAddress = fs.readFileSync('.eth-pub-key', 'utf8').toString().trim();
-const AvaxAddress = fs.readFileSync('.avax-pub-key', 'utf8').toString().trim();
+const EthAddress = fs.readFileSync('./keys/.eth-pub-key', 'utf8').toString().trim();
+// const EthKey = fs.readFileSync('./keys/.eth-priv-key', 'utf8').toString().trim();
+// const AvaxAddress = fs.readFileSync('./keys/.avax-pub-key', 'utf8').toString().trim();
+// const AvaxKey = fs.readFileSync('./keys/.avax-priv-key', 'utf8').toString().trim();
+const GatewayAddress = fs.readFileSync('./keys/.gateway-pub-key', 'utf8').toString().trim();
+// const GatewayKey = fs.readFileSync('./keys/.gateway-priv-key', 'utf8').toString().trim();
 // its kinda deploy(contract, args)
-
-// const fuckYou = async () => {
-//     const LNKC = await LancheTokenChild.deployed();
-//     const SBridge = await SideBridge.deployed();
-//     await LNKC.setSideBridge(SBridge.address);
-//     const MBridge = await MainBridge.deployed();
-//     await LNKC.setMainBridge(MBridge.address);
-// }
 
 //there exists token.address
 
@@ -22,25 +18,16 @@ module.exports = async (deployer, network, addresses) => {
     if(network === 'rinkeby'){
         await deployer.deploy(LancheToken);
         const LNK = await LancheToken.deployed();
-        LNK.mint(EthAddress, "123456789qwertyuio");
-        //DO NOT MIGRATE
-        //INCOMPLETE FILE
-        await deployer.deploy(MainBridge,LNK.address, EthAddress);
-        //Take the bridge address and set it in the LancheToken contract
-        // const MBridge = await MainBridge.deploayed();
-        //DO NOT MIGRATE
-        //INCOMPLETE FILE
+        await deployer.deploy(MainBridge,LNK.address, GatewayAddress);
+        for(let i = 0; i < 6; i++){
+            LNK.safeMint(EthAddress);
+        }
     }
     if(network === 'fuji'){
-        await deployer.deploy(LancheTokenChild);
-        const LNKC = await LancheTokenChild.deployed();
-        //DO NOT MIGRATE
-        //INCOMPLETE FILE
-        await deployer.deploy(SideBridge, LNKC.address, AvaxAddress);
-        //note the bridge address and set it here
+        await deployer.deploy(SideBridge, GatewayAddress);
         const SBridge = await SideBridge.deployed();
-        LNKC.setBridgeAddress(SBridge.address);
-        //DO NOT MIGRATE
-        //INCOMPLETE FILE
+        await deployer.deploy(LancheTokenChild.SBridge.address);
+        const LNKC = await LancheTokenChild.deployed();
+        SBridge.initializeBridge(LNKC.address);
     }
 }
