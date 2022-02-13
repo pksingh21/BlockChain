@@ -119,6 +119,7 @@ dist
 # Personal Data
 .adminkey
 .secret
+<<<<<<< Updated upstream
 migrations/.avax-priv-key
 deployment-data.txt
 migrations/.avax-pub-key
@@ -126,3 +127,14 @@ migrations/.eth-priv-key
 migrations/.eth-pub-key
 migrations/.gateway-priv-key
 migrations/.gateway-pub-key
+=======
+/migrations/.avax-pub-key
+/migrations/.eth-pub-key
+.contract-addresses
+.vscode/settings.json
+migrations/keys/.avax-priv-key
+migrations/keys/.eth-priv-key
+migrations/keys/.avax-pub-key
+migrations/keys/.eth-pub-key
+migrations/keys/.gateway-priv-key
+>>>>>>> Stashed changes
