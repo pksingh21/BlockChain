@@ -6,7 +6,7 @@ const networks = {
     chainId: `0x${Number(4).toString(16)}`,
     chainName: "Rinkeby Test Network",
     nativeCurrency: {
-      name: "Ethereum",
+      name: "Ether",
       symbol: "ETH",
       decimals: 18,
     },
@@ -75,7 +75,7 @@ export default function App() {
     <div className="credit-card w-full lg:w-1/2 sm:w-auto shadow-lg mx-auto rounded-xl bg-white">
       <main className="mt-4 p-4">
         <h1 className="text-xl font-semibold text-gray-700 text-center">
-          Force MetaMask network (Currently not working )
+          Switch Network
         </h1>
         <div className="mt-4">
           <button

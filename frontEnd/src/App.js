@@ -46,7 +46,7 @@ export default function App() {
         <div className="credit-card w-full lg:w-1/2 sm:w-auto shadow-lg mx-auto rounded-xl bg-white">
           <main className="mt-4 p-4">
             <h1 className="text-xl font-semibold text-gray-700 text-center">
-              Send LNK payment
+              Bridge LNK Tokens
             </h1>
             <div className="">
               <div className="my-3">
@@ -62,7 +62,7 @@ export default function App() {
                   name="ether"
                   type="text"
                   className="input input-bordered block w-full focus:ring focus:outline-none"
-                  placeholder="Amount in ETH"
+                  placeholder="enter Token ID"
                 />
               </div>
             </div>
