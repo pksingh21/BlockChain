@@ -11,6 +11,7 @@ lerna-debug.log*
 .secret
 migrations/keys/
 .deployment-data
+.contract-addresses
 
 #Random Useless Files
 /NFT-Art

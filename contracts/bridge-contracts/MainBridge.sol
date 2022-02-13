@@ -4,7 +4,7 @@ pragma solidity ^0.8.0;
 import { IERC721 } from "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import { ERC721Holder } from "@openzeppelin/contracts/token/ERC721/utils/ERC721Holder.sol";
 
-abstract contract MainBridge is ERC721Holder {
+contract MainBridge is ERC721Holder {
     IERC721 private mainToken; //ERC721 token interface
 
     address gateway; //The address of the gateway
