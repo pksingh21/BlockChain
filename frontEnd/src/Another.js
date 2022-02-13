@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import ErrorMessage from "./AnotherError";
 import { Grid } from "@mui/material";
+
 const networks = {
   rinkeby: {
     chainId: `0x${Number(4).toString(16)}`,
