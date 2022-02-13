@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 import ErrorMessage from "./AnotherError";
+import {useChain} from "react-moralis";
+
+const { switchNetwork, chainId, chain, account } = useChain();
 
 const networks = {
   rinkeby: {
@@ -33,7 +36,7 @@ const networks = {
     ],
   },
 };
-
+//yaha is
 const changeNetwork = async ({ networkName, setError }) => {
   try {
     if (!window.ethereum) throw new Error("No crypto wallet found");

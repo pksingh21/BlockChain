@@ -3,13 +3,29 @@ import { ethers } from "ethers";
 import ErrorMessage from "./ErrorMessage";
 import TxList from "./TxList";
 import AnotherApp from "./Another";
+import { useMoralis, useChain  } from "react-moralis";
+// import Bridge from "./Bridge";
+// import Return from "./Return";
 
+const { switchNetwork, chainId, chain, account } = useChain();
+
+const { authenticate, isAuthenticated, user } = useMoralis();
 const mainToken = "0xc3379a1bFb1b8B959e7297bD343d6713BbA0926d";
 const childToken = "0x0d8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8";
 
-const startPayment = async ({ setError, setTxs, ether, addr }) => {
+const startAuth = async ({setError}) => {
+  try{
+    if(!isAuthenticated()){
+      await authenticate();
+    }
+  } catch (err) {
+    setError(err.message);
+  }
+}
+
+const startPayment = async ({ setError, setTxs, tokenId, addr }) => {
   try {
-    if (!window.ethereum)
+    if (!window.ethereum)   
       throw new Error("Metamask extension not found. Please install it.");
 
     await window.ethereum.send("eth_requestAccounts");
@@ -31,7 +47,7 @@ const startPayment = async ({ setError, setTxs, ether, addr }) => {
     const tx = await signer.sendTransaction({
       contract_address: tokenAddr,
       to: addr,
-      value: ethers.utils.parseEther(ether),
+      value: ethers.utils.parseEther(tokenId),
     });
     console.log({ ether, addr });
     console.log("tx", tx);
@@ -42,6 +58,7 @@ const startPayment = async ({ setError, setTxs, ether, addr }) => {
 };
 
 export default function App() {
+
   const [error, setError] = useState();
   const [txs, setTxs] = useState([]);
 
@@ -52,7 +69,7 @@ export default function App() {
     await startPayment({
       setError,
       setTxs,
-      ether: data.get("ether"),
+      tokenId: data.get("tokenId"),
       addr: data.get("addr"),
     });
   };
@@ -76,7 +93,7 @@ export default function App() {
               </div>
               <div className="my-3">
                 <input
-                  name="ether"
+                  name="tokenId"
                   type="text"
                   className="input input-bordered block w-full focus:ring focus:outline-none"
                   placeholder="enter Token ID"
