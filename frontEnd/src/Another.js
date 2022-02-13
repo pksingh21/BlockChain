@@ -39,22 +39,14 @@ const changeNetwork = async ({ networkName, setError }) => {
     if (!window.ethereum) throw new Error("No crypto wallet found");
     console.log(networks[networkName]);
     await window.ethereum.request({
-<<<<<<< HEAD
       method: "wallet_switchEthereumChain",
       params: [
         {
           chainId: networks[networkName].chainId,
-=======
-      method: "wallet_addEthereumChain",
-      params: [
-        {
-          ...networks[networkName],
->>>>>>> 6397bade2a92678e5291d1021e67f668e808a7b1
         },
       ],
     });
   } catch (err) {
-<<<<<<< HEAD
     if(err.code == 4902){
       try{
         await ethereum.request({
@@ -69,9 +61,6 @@ const changeNetwork = async ({ networkName, setError }) => {
         console.log(err);
       }
     }
-=======
-    setError(err.message);
->>>>>>> 6397bade2a92678e5291d1021e67f668e808a7b1
   }
 };
 
