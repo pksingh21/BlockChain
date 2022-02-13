@@ -86,7 +86,7 @@ export default function App() {
           </button>
           <button
             onClick={() => handleNetworkSwitch("avax")}
-            className="mt-2 mb-2 bg-warning border-warning btn submit-button focus:ring focus:outline-none w-full"
+            className="mt-2 mb-2 bg-error border-warning btn submit-button focus:ring focus:outline-none w-full"
           >
             Switch to Avax Fuji Testnet
           </button>
