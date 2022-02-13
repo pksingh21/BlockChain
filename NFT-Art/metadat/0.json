@@ -1,0 +1,12 @@
+{
+    "name": "LancheToken",
+    "tokenId": 0,
+    "image": "https://gateway.pinata.cloud/ipfs/QmNRDrD5G2CmrsfRUrSG3RZRqenqPJhC1uDVxAJHTakAti/0.png",
+    "description": "Exchange Tokens for ETH-AVAX Bridge",
+    "Attributes": [
+        {
+            "trait_type": "Tier",
+            "value": "S"
+        }
+    ]
+}

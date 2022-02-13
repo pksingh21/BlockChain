@@ -15,14 +15,15 @@ contract LancheToken is ERC721, ERC721Enumerable, ERC721Burnable, Ownable {
     constructor() ERC721("LancheToken", "LNK") {}
 
     function _baseURI() internal pure override returns (string memory) {
-        return "https://gateway.pinata.cloud/ipfs/QmYSHpTcQRnJY9krbTfZotdEb4CFr88q7WkyERv8Bs71fQ/";
+        return "";
     }
 
     
     function safeMint(address to) public onlyOwner {
+        _tokenIdCounter.increment();
         uint256 tokenId = _tokenIdCounter.current();
         _safeMint(to, tokenId);
-        _tokenIdCounter.increment();
+        
     }
 
     // The following functions are overrides required by Solidity.

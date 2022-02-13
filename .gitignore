@@ -8,9 +8,16 @@ lerna-debug.log*
 
 #Compiled Solidity Scripts
 /build
+.secret
+migrations/keys/
+.deployment-data
+.contract-addresses
 
-#Misc Files
-/migrations/keys
+#Random Useless Files
+/NFT-Art
+/.vscode
+
+
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
@@ -112,6 +119,15 @@ dist
 # Personal Data
 .adminkey
 .secret
+<<<<<<< Updated upstream
+migrations/.avax-priv-key
+deployment-data.txt
+migrations/.avax-pub-key
+migrations/.eth-priv-key
+migrations/.eth-pub-key
+migrations/.gateway-priv-key
+migrations/.gateway-pub-key
+=======
 /migrations/.avax-pub-key
 /migrations/.eth-pub-key
 .contract-addresses
@@ -121,3 +137,4 @@ migrations/keys/.eth-priv-key
 migrations/keys/.avax-pub-key
 migrations/keys/.eth-pub-key
 migrations/keys/.gateway-priv-key
+>>>>>>> Stashed changes
