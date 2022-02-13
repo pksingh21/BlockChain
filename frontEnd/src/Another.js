@@ -4,39 +4,33 @@ import ErrorMessage from "./AnotherError";
 const networks = {
   rinkeby: {
     chainId: `0x${Number(4).toString(16)}`,
-    chainName: "Rinkeby",
+    chainName: "Rinkeby Test Network",
     nativeCurrency: {
-      name: "Rinkeby Ether",
-      symbol: "RIN",
-      decimals: 18,
-    },
-    rpcUrls: ["https://rinkeby.infura.io/v3/1d996e9d14444a7793301ae6709b69e8"],
-    blockExplorerUrls: ["https://rinkeby.etherscan.io"],
-  },
-  bsc: {
-    chainId: `0x${Number(56).toString(16)}`,
-    chainName: "Binance Smart Chain Mainnet",
-    nativeCurrency: {
-      name: "Binance Chain Native Token",
-      symbol: "BNB",
+      name: "Ethereum",
+      symbol: "ETH",
       decimals: 18,
     },
     rpcUrls: [
-      "https://bsc-dataseed1.binance.org",
-      "https://bsc-dataseed2.binance.org",
-      "https://bsc-dataseed3.binance.org",
-      "https://bsc-dataseed4.binance.org",
-      "https://bsc-dataseed1.defibit.io",
-      "https://bsc-dataseed2.defibit.io",
-      "https://bsc-dataseed3.defibit.io",
-      "https://bsc-dataseed4.defibit.io",
-      "https://bsc-dataseed1.ninicoin.io",
-      "https://bsc-dataseed2.ninicoin.io",
-      "https://bsc-dataseed3.ninicoin.io",
-      "https://bsc-dataseed4.ninicoin.io",
-      "wss://bsc-ws-node.nariox.org",
+      "https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161"
     ],
-    blockExplorerUrls: ["https://bscscan.com"],
+    blockExplorerUrls: [
+      "https://rinkeby.etherscan.io"
+    ],
+  },
+  avax: {
+    chainId: `0x${Number(43113).toString(16)}`,
+    chainName: "Avalanche Fuji Testnet",
+    nativeCurrency: {
+      name: "Avalanche",
+      symbol: "AVAX",
+      decimals: 9,
+    },
+    rpcUrls: [
+      "https://api.avax-test.network/ext/bc/C/rpc"
+    ],
+    blockExplorerUrls: [
+      "https://testnet.snowtrace.io/"
+    ],
   },
 };
 
@@ -88,13 +82,13 @@ export default function App() {
             onClick={() => handleNetworkSwitch("rinkeby")}
             className="mt-2 mb-2 btn btn-primary submit-button focus:ring focus:outline-none w-full"
           >
-            Switch to Rinkeby
+            Switch to Ethereum Rinkeby Testnet
           </button>
           <button
-            onClick={() => handleNetworkSwitch("bsc")}
+            onClick={() => handleNetworkSwitch("avax")}
             className="mt-2 mb-2 bg-warning border-warning btn submit-button focus:ring focus:outline-none w-full"
           >
-            Switch to BSC
+            Switch to Avax Fuji Testnet
           </button>
           <ErrorMessage message={error} />
         </div>
